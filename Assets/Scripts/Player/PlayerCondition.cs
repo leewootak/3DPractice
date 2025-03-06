@@ -1,18 +1,40 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.EnhancedTouch;
 
 public class PlayerCondition : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public UICondition uiCondition;
+
+    Condition health { get { return uiCondition.health; } }
+
+    public event Action onTakeDamage;
+
+    private void Update()
     {
-        
+        health.Subtract(health.passiveValue * Time.deltaTime);
+
+        if(health.curValue <= 0f)
+        {
+            Die();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Heal(float amount)
     {
-        
+        health.Add(amount);
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health.Subtract(damage);
+        onTakeDamage?.Invoke();
+    }
+
+    public void Die()
+    {
+        Debug.Log("Die");
     }
 }
