@@ -113,4 +113,12 @@ public class PlayerController : MonoBehaviour
 
         return false;
     }
+
+    private void OnCollisionEnter(Collision target)
+    {
+        if (target.collider.CompareTag("Trampoline"))
+        {
+            rb.AddForce(Vector3.up * jumpPower * 5, ForceMode.Impulse);
+        }
+    }
 }

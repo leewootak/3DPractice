@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebc5fc7f5b8c86e418187647067dc5e9, type: 3}
   m_Name: Wood
   m_EditorClassIdentifier: 
-  displayName: "\uB098\uBB34"
-  description: "\uB098\uBB34\uC5D0\uC11C \uCC44\uCDE8\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+  displayName: "\uD1B5\uB098\uBB34"
+  description: "\uB098\uBB34\uB97C \uBCA0\uC5B4 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
   type: 0
   icon: {fileID: 21300000, guid: a5612e17f7779374da8564e7a11d823c, type: 3}
   dropPrefab: {fileID: 0}
