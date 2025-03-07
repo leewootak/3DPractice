@@ -9,7 +9,7 @@ public class CharacterManager : MonoBehaviour
         {
             if (instance == null)
             {
-                // ÀÎ½ºÅÏ½º°¡ ¾ÆÁ÷ »ı¼ºµÇÁö ¾ÊÀº °æ¿ì »õ GameObject¸¦ »ı¼ºÇÏ°í CharacterManager ÄÄÆ÷³ÍÆ®¸¦ Ãß°¡ÇÏ¿© ÇÒ´ç
+                // ì¸ìŠ¤í„´ìŠ¤ê°€ ì•„ì§ ìƒì„±ë˜ì§€ ì•Šì€ ê²½ìš° ìƒˆ GameObjectë¥¼ ìƒì„±í•˜ê³  CharacterManager ì»´í¬ë„ŒíŠ¸ë¥¼ ì¶”ê°€í•˜ì—¬ í• ë‹¹
                 instance = new GameObject("CharacterManager").AddComponent<CharacterManager>();
             }
             return instance;
@@ -25,7 +25,7 @@ public class CharacterManager : MonoBehaviour
 
     private void Awake()
     {
-        // ÀÎ½ºÅÏ½º°¡ ¾ÆÁ÷ ÇÒ´çµÇÁö ¾ÊÀº °æ¿ì ÇöÀç ¿ÀºêÁ§Æ®¸¦ ½Ì±ÛÅæ ÀÎ½ºÅÏ½º·Î ÇÒ´ç
+        // ì¸ìŠ¤í„´ìŠ¤ê°€ ì•„ì§ í• ë‹¹ë˜ì§€ ì•Šì€ ê²½ìš° í˜„ì¬ ì˜¤ë¸Œì íŠ¸ë¥¼ ì‹±ê¸€í†¤ ì¸ìŠ¤í„´ìŠ¤ë¡œ í• ë‹¹
         if (instance == null)
         {
             instance = this;
@@ -33,7 +33,7 @@ public class CharacterManager : MonoBehaviour
         }
         else
         {
-            // ÀÌ¹Ì ÀÎ½ºÅÏ½º°¡ Á¸ÀçÇÏ°í ÇöÀç ¿ÀºêÁ§Æ®°¡ ±× ÀÎ½ºÅÏ½º¿Í ´Ù¸¦ °æ¿ì Áßº¹ »ı¼ºµÈ ¿ÀºêÁ§Æ® ÆÄ±«
+            // ì´ë¯¸ ì¸ìŠ¤í„´ìŠ¤ê°€ ì¡´ì¬í•˜ê³  í˜„ì¬ ì˜¤ë¸Œì íŠ¸ê°€ ê·¸ ì¸ìŠ¤í„´ìŠ¤ì™€ ë‹¤ë¥¼ ê²½ìš° ì¤‘ë³µ ìƒì„±ëœ ì˜¤ë¸Œì íŠ¸ íŒŒê´´
             if (instance != this)
             {
                 Destroy(gameObject);

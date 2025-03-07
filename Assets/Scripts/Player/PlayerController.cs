@@ -8,17 +8,17 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
     public float moveSpeed;
     public float jumpPower;
-    public LayerMask groundLayerMask;  // ·¹ÀÌ¾î Á¤º¸
-    private Vector2 curMovementInput;  // ÇöÀç ÀÔ·Â °ª
+    public LayerMask groundLayerMask;  // ë ˆì´ì–´ ì •ë³´
+    private Vector2 curMovementInput;  // í˜„ì¬ ì…ë ¥ ê°’
 
     [Header("Look")]
     public Transform cameraContainer;
-    public float minXLook;  // ÃÖ¼Ò ½Ã¾ß°¢
-    public float maxXLook;  // ÃÖ´ë ½Ã¾ß°¢
-    public float lookSensitivity; // Ä«¸Ş¶ó ¹Î°¨µµ
+    public float minXLook;  // ìµœì†Œ ì‹œì•¼ê°
+    public float maxXLook;  // ìµœëŒ€ ì‹œì•¼ê°
+    public float lookSensitivity; // ì¹´ë©”ë¼ ë¯¼ê°ë„
     private float camCurXRot;
 
-    private Vector2 mouseDelta;  // ¸¶¿ì½º º¯È­°ª
+    private Vector2 mouseDelta;  // ë§ˆìš°ìŠ¤ ë³€í™”ê°’
 
     private Rigidbody rb;
 
@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked; // Ä¿¼­¸¦ ¼û±â°í Áß¾Ó¿¡ °íÁ¤
+        Cursor.lockState = CursorLockMode.Locked; // ì»¤ì„œë¥¼ ìˆ¨ê¸°ê³  ì¤‘ì•™ì— ê³ ì •
     }
 
     private void FixedUpdate()
@@ -44,13 +44,13 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        // ÇöÀç ÀÔ·ÂÀÇ y °ªÀº z Ãà(forward, ¾ÕµÚ)¿¡ °öÇÑ´Ù.
-        // ÇöÀç ÀÔ·ÂÀÇ x °ªÀº x Ãà(right, ÁÂ¿ì)¿¡ °öÇÑ´Ù.
+        // í˜„ì¬ ì…ë ¥ì˜ y ê°’ì€ z ì¶•(forward, ì•ë’¤)ì— ê³±í•œë‹¤.
+        // í˜„ì¬ ì…ë ¥ì˜ x ê°’ì€ x ì¶•(right, ì¢Œìš°)ì— ê³±í•œë‹¤.
         Vector3 dir = transform.forward * curMovementInput.y + transform.right * curMovementInput.x;
-        dir *= moveSpeed;  // ¹æÇâ¿¡ ¼Ó·ÂÀ» °öÇØÁØ´Ù.
-        dir.y = rb.velocity.y;  // y°ªÀº velocity(º¯È­·®)ÀÇ y °ªÀ» ³Ö¾îÁØ´Ù.
+        dir *= moveSpeed;  // ë°©í–¥ì— ì†ë ¥ì„ ê³±í•´ì¤€ë‹¤.
+        dir.y = rb.velocity.y;  // yê°’ì€ velocity(ë³€í™”ëŸ‰)ì˜ y ê°’ì„ ë„£ì–´ì¤€ë‹¤.
 
-        rb.velocity = dir;  // ¿¬»êµÈ ¼Óµµ¸¦ velocity(º¯È­·®)¿¡ ³Ö¾îÁØ´Ù.
+        rb.velocity = dir;  // ì—°ì‚°ëœ ì†ë„ë¥¼ velocity(ë³€í™”ëŸ‰)ì— ë„£ì–´ì¤€ë‹¤.
     }
 
     public void OnMoveInput(InputAction.CallbackContext context)
@@ -75,14 +75,14 @@ public class PlayerController : MonoBehaviour
 
     private void CameraLook()
     {
-        // ¸¶¿ì½º ¿òÁ÷ÀÓÀÇ º¯È­·®(mouseDelta)Áß y(À§ ¾Æ·¡)°ª¿¡ ¹Î°¨µµ¸¦ °öÇÑ´Ù.
-        // Ä«¸Ş¶ó°¡ À§ ¾Æ·¡·Î È¸ÀüÇÏ·Á¸é rotationÀÇ x °ª¿¡ ³Ö¾îÁØ´Ù. ->
+        // ë§ˆìš°ìŠ¤ ì›€ì§ì„ì˜ ë³€í™”ëŸ‰(mouseDelta)ì¤‘ y(ìœ„ ì•„ë˜)ê°’ì— ë¯¼ê°ë„ë¥¼ ê³±í•œë‹¤.
+        // ì¹´ë©”ë¼ê°€ ìœ„ ì•„ë˜ë¡œ íšŒì „í•˜ë ¤ë©´ rotationì˜ x ê°’ì— ë„£ì–´ì¤€ë‹¤. ->
         camCurXRot += mouseDelta.y * lookSensitivity;
         camCurXRot = Mathf.Clamp(camCurXRot, minXLook, maxXLook);
         cameraContainer.localEulerAngles = new Vector3(-camCurXRot, 0, 0);
 
-        // ¸¶¿ì½º ¿òÁ÷ÀÓÀÇ º¯È­·®(mouseDelta)Áß x(ÁÂ¿ì)°ª¿¡ ¹Î°¨µµ¸¦ °öÇÑ´Ù.
-        // Ä«¸Ş¶ó°¡ ÁÂ¿ì·Î È¸ÀüÇÏ·Á¸é rotationÀÇ y °ª¿¡ ³Ö¾îÁØ´Ù.
+        // ë§ˆìš°ìŠ¤ ì›€ì§ì„ì˜ ë³€í™”ëŸ‰(mouseDelta)ì¤‘ x(ì¢Œìš°)ê°’ì— ë¯¼ê°ë„ë¥¼ ê³±í•œë‹¤.
+        // ì¹´ë©”ë¼ê°€ ì¢Œìš°ë¡œ íšŒì „í•˜ë ¤ë©´ rotationì˜ y ê°’ì— ë„£ì–´ì¤€ë‹¤.
         transform.eulerAngles += new Vector3(0, mouseDelta.x * lookSensitivity, 0);
     }
 
@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour
     {
         Ray[] rays = new Ray[4]
         {
-            // ÇÃ·¹ÀÌ¾îÀÇ À§Ä¡¿¡¼­ ¾à°£ À§·Î ¿Ã¸° ÈÄ, ¾Õ, µÚ, ¿À¸¥ÂÊ, ¿ŞÂÊ ¹æÇâÀ¸·Î 0.2¸¸Å­ ¿ÀÇÁ¼ÂÇÏ¿© Raycast ¹ß»ç
+            // í”Œë ˆì´ì–´ì˜ ìœ„ì¹˜ì—ì„œ ì•½ê°„ ìœ„ë¡œ ì˜¬ë¦° í›„, ì•, ë’¤, ì˜¤ë¥¸ìª½, ì™¼ìª½ ë°©í–¥ìœ¼ë¡œ 0.2ë§Œí¼ ì˜¤í”„ì…‹í•˜ì—¬ Raycast ë°œì‚¬
             new Ray(transform.position + (transform.forward * 0.2f) + (transform.up * 0.01f), Vector3.down),
             new Ray(transform.position + (-transform.forward * 0.2f) + (transform.up * 0.01f), Vector3.down),
             new Ray(transform.position + (transform.right * 0.2f) + (transform.up * 0.01f), Vector3.down),

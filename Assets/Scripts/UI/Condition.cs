@@ -21,13 +21,13 @@ public class Condition : MonoBehaviour
 
     public void Add(float amount)
     {
-        // µÑ ÁßÀÇ ÀÛÀº °ª (ex. maxValueº¸´Ù Ä¿Áö¸é maxValue)
+        // ë‘˜ ì¤‘ì˜ ì‘ì€ ê°’ (ex. maxValueë³´ë‹¤ ì»¤ì§€ë©´ maxValue)
         curValue = Mathf.Min(curValue + amount, maxValue);
     }
 
     public void Subtract(float amount)
     {
-        // µÑ ÁßÀÇ Å« °ª (ex. 0º¸´Ù ÀÛ¾ÆÁö¸é 0)
+        // ë‘˜ ì¤‘ì˜ í° ê°’ (ex. 0ë³´ë‹¤ ì‘ì•„ì§€ë©´ 0)
         curValue = Mathf.Max(curValue - amount, 0.0f);
     }
 
