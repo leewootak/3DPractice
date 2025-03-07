@@ -2,12 +2,14 @@ using UnityEngine;
 
 public enum ItemType
 {
-    Resource
+    Resource,
+    Consumable
 }
 
 public enum ConsumableType
 {
-    Health
+    Health,
+    Speed
 }
 
 [System.Serializable]
@@ -24,12 +26,7 @@ public class ItemData : ScriptableObject
     public string displayName;
     public string description;
     public ItemType type;
-    public Sprite icon;
     public GameObject dropPrefab;
-
-    [Header("Stacking")]
-    public bool canStack;
-    public int maxStackAmount;
 
     [Header("Consumable")]
     public ItemDataConsumable[] consumables;
