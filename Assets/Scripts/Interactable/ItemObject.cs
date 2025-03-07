@@ -1,25 +1,25 @@
 using UnityEngine;
 
-// 인터랙션 가능한 객체에 상속할 인터페이스
+// 인터랙션 가능한 객체를 위한 인터페이스
 public interface IInteractable
 {
-    public string GetInteractPrompt();  // UI에 표시할 정보
-    public void OnInteract();           // 인터랙션 호출
+    public string GetInteractPrompt();  // 인터랙션 시 표시할 텍스트
+    public void OnInteract();           // 인터랙션 실행 함수
 }
 
 public class ItemObject : MonoBehaviour, IInteractable
 {
-    public ItemData data;
+    public ItemData data;  // 아이템 데이터
 
     public string GetInteractPrompt()
     {
-        string str = $"{data.displayName}\n{data.description}";
-        return str;
+        // 아이템 이름과 설명을 조합하여 반환
+        return $"{data.displayName}\n{data.description}";
     }
 
     public void OnInteract()
     {
-        //Player 스크립트에 상호작용 아이템 data 넘기기.
+        // 플레이어에게 아이템 데이터를 전달 후 아이템 오브젝트 제거
         CharacterManager.Instance.Player.itemData = data;
         CharacterManager.Instance.Player.addItem?.Invoke();
         Destroy(gameObject);
