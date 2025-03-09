@@ -38,7 +38,7 @@ public class PlayerCondition : MonoBehaviour
         isHealing = false;
     }
 
-    public void Booster(float amount, float duration)
+    public void Booster(float amount)
     {
 
     }
