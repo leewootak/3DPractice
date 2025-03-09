@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1471240020973536530}
   - component: {fileID: 387530503611195182}
   - component: {fileID: 6079334108158669413}
+  - component: {fileID: -1115637419030274000}
   m_Layer: 0
   m_Name: Item_Rock
   m_TagString: Untagged
@@ -82,6 +83,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-1115637419030274000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2865955535432034840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80b3628af250b5c4ba8b51b247d00890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 802548a9941fc8c40809b939783b3369, type: 2}
 --- !u!1 &6922826111938167912
 GameObject:
   m_ObjectHideFlags: 0

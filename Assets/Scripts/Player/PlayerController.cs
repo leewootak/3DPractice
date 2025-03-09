@@ -17,10 +17,10 @@ public class PlayerController : MonoBehaviour
     public float maxXLook;  // 최대 시야각
     public float lookSensitivity; // 카메라 민감도
     private float camCurXRot;
-
     private Vector2 mouseDelta;  // 마우스 변화값
 
     private Rigidbody rb;
+    private PlayerCondition condition;
 
     private void Awake()
     {

@@ -10,6 +10,12 @@ public interface IInteractable
 public class ItemObject : MonoBehaviour, IInteractable
 {
     public ItemData data;  // 아이템 데이터
+    [SerializeField] private PlayerCondition condition;
+
+    private void Awake()
+    {
+
+    }
 
     public string GetInteractPrompt()
     {
@@ -21,7 +27,26 @@ public class ItemObject : MonoBehaviour, IInteractable
     {
         // 플레이어에게 아이템 데이터를 전달 후 아이템 오브젝트 제거
         CharacterManager.Instance.Player.itemData = data;
-        CharacterManager.Instance.Player.addItem?.Invoke();
+        if (data.type == ItemType.Consumable)
+        {
+            for (int i = 0; i < data.consumables.Length; i++)
+            {
+                switch (data.consumables[i].type)
+                {
+                    case ConsumableType.Health:
+                        if (condition != null)
+                        {
+                            condition.Heal(data.consumables[i].value);
+                        }
+                        else
+                        {
+                            Debug.LogError("PlayerCondition이 할당되지 않았습니다!");
+                        }
+
+                        break;
+                }
+            }
+        }
         Destroy(gameObject);
     }
 }
