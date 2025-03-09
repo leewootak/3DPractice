@@ -7,6 +7,7 @@ using UnityEngine.InputSystem.EnhancedTouch;
 public class PlayerCondition : MonoBehaviour
 {
     public UICondition uiCondition;
+    public bool isHealing;
 
     Condition health { get { return uiCondition.health; } }
 
@@ -14,7 +15,10 @@ public class PlayerCondition : MonoBehaviour
 
     private void Update()
     {
-        health.Subtract(health.passiveValue * Time.deltaTime);
+        if (!isHealing)
+        {
+            health.Subtract(health.dotValue * Time.deltaTime);
+        }
 
         if(health.curValue <= 0f)
         {
@@ -24,7 +28,19 @@ public class PlayerCondition : MonoBehaviour
 
     public void Heal(float amount)
     {
-        health.Add(amount);
+        isHealing = true;
+        health.Add(health.dotValue * amount);
+        Invoke("Decreasing", 3f);
+    }
+
+    public void Decreasing()
+    {
+        isHealing = false;
+    }
+
+    public void Booster(float amount, float duration)
+    {
+
     }
 
     public void TakeDamage(float damage)

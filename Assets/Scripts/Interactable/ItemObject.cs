@@ -12,11 +12,6 @@ public class ItemObject : MonoBehaviour, IInteractable
     public ItemData data;  // 아이템 데이터
     [SerializeField] private PlayerCondition condition;
 
-    private void Awake()
-    {
-
-    }
-
     public string GetInteractPrompt()
     {
         // 아이템 이름과 설명을 조합하여 반환
@@ -34,15 +29,10 @@ public class ItemObject : MonoBehaviour, IInteractable
                 switch (data.consumables[i].type)
                 {
                     case ConsumableType.Health:
-                        if (condition != null)
-                        {
-                            condition.Heal(data.consumables[i].value);
-                        }
-                        else
-                        {
-                            Debug.LogError("PlayerCondition이 할당되지 않았습니다!");
-                        }
-
+                        condition.Heal(data.consumables[i].value);
+                        break;
+                    case ConsumableType.Speed:
+                        condition.Booster(data.consumables[i].value);
                         break;
                 }
             }

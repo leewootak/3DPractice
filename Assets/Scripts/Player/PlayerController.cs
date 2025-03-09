@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
     private void CameraLook()
     {
         // 마우스 움직임의 변화량(mouseDelta)중 y(위 아래)값에 민감도를 곱한다.
-        // 카메라가 위 아래로 회전하려면 rotation의 x 값에 넣어준다. ->
+        // 카메라가 위 아래로 회전하려면 rotation의 x 값에 넣어준다.
         camCurXRot += mouseDelta.y * lookSensitivity;
         camCurXRot = Mathf.Clamp(camCurXRot, minXLook, maxXLook);
         cameraContainer.localEulerAngles = new Vector3(-camCurXRot, 0, 0);
