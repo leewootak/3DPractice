@@ -9,6 +9,7 @@ public class PlayerCondition : MonoBehaviour
     public UICondition uiCondition;
     public PlayerController controller;
 
+    private bool isDead;
     private bool isBooster;
 
     Condition health { get { return uiCondition.health; } }
@@ -19,7 +20,7 @@ public class PlayerCondition : MonoBehaviour
     {
         health.Subtract(health.dotValue * Time.deltaTime);
 
-        if(health.curValue <= 0f)
+        if(health.curValue <= 0f && !isDead)
         {
             Die();
         }
@@ -50,6 +51,7 @@ public class PlayerCondition : MonoBehaviour
 
     public void Die()
     {
+        isDead = true;
         Debug.Log("Die");
     }
 }

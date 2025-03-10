@@ -114,6 +114,7 @@ public class PlayerController : MonoBehaviour
         return false;
     }
 
+    // 점프대
     private void OnCollisionEnter(Collision target)
     {
         if (target.collider.CompareTag("Trampoline"))
