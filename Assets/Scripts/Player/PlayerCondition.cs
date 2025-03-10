@@ -31,12 +31,6 @@ public class PlayerCondition : MonoBehaviour
         StartCoroutine(health.DotAdd(health.dotValue * amount));
     }
 
-    public void TakeDamage(float damage)
-    {
-        health.Subtract(damage);
-        onTakeDamage?.Invoke();
-    }
-
     public void Booster(float speed)
     {
         controller.moveSpeed = speed;
@@ -47,6 +41,12 @@ public class PlayerCondition : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
         controller.moveSpeed = 5f;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health.Subtract(damage);
+        onTakeDamage?.Invoke();
     }
 
     public void Die()
