@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ebc5fc7f5b8c86e418187647067dc5e9, type: 3}
-  m_Name: Wood
+  m_Name: Item_Speed
   m_EditorClassIdentifier: 
-  displayName: "\uD1B5\uB098\uBB34"
-  description: "\uB098\uBB34\uB97C \uBCA0\uC5B4 \uD68D\uB4DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
-  type: 0
-  dropPrefab: {fileID: 522459008932986039, guid: 23bd600a3424d9e44ac451d447977c93, type: 3}
-  consumables: []
+  displayName: "\uBC84\uC12F"
+  description: "\uBA39\uC73C\uBA74 5\uCD08\uAC04 \uC774\uB3D9\uC18D\uB3C4\uAC00 \uC0C1\uC2B9\uD569\uB2C8\uB2E4."
+  type: 1
+  dropPrefab: {fileID: 0}
+  consumables:
+  - type: 1
+    value: 10

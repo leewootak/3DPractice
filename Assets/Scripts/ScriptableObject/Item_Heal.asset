@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ebc5fc7f5b8c86e418187647067dc5e9, type: 3}
-  m_Name: Heal
+  m_Name: Item_Heal
   m_EditorClassIdentifier: 
   displayName: "\uC218\uC0C1\uD55C \uB3C4\uB11B"
   description: "\uBA39\uC73C\uBA74 3\uCD08\uAC04 \uC11C\uC11C\uD788 \uCCB4\uB825\uC774
     \uD68C\uBCF5\uB429\uB2C8\uB2E4."
   type: 1
-  dropPrefab: {fileID: 4542146435053563253, guid: 7ad882d92260f6d42900c84561064dd3, type: 3}
+  dropPrefab: {fileID: 0}
   consumables:
   - type: 0
     value: 5

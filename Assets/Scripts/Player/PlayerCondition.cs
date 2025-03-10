@@ -7,6 +7,9 @@ using UnityEngine.InputSystem.EnhancedTouch;
 public class PlayerCondition : MonoBehaviour
 {
     public UICondition uiCondition;
+    public PlayerController controller;
+
+    private bool isBooster;
 
     Condition health { get { return uiCondition.health; } }
 
@@ -31,6 +34,18 @@ public class PlayerCondition : MonoBehaviour
     {
         health.Subtract(damage);
         onTakeDamage?.Invoke();
+    }
+
+    public void Booster(float speed)
+    {
+        controller.moveSpeed = speed;
+        StartCoroutine(ResetSpeed(5f));
+    }
+
+    public IEnumerator ResetSpeed(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        controller.moveSpeed = 5f;
     }
 
     public void Die()

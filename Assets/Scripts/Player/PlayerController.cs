@@ -20,7 +20,6 @@ public class PlayerController : MonoBehaviour
     private Vector2 mouseDelta;  // 마우스 변화값
 
     private Rigidbody rb;
-    private PlayerCondition condition;
 
     private void Awake()
     {
@@ -55,17 +54,16 @@ public class PlayerController : MonoBehaviour
 
     public void OnMoveInput(InputAction.CallbackContext context)
     {
-        if (IsGrounded())
+
+        if (context.phase == InputActionPhase.Performed)
         {
-            if (context.phase == InputActionPhase.Performed)
-            {
-                curMovementInput = context.ReadValue<Vector2>();
-            }
-            else if (context.phase == InputActionPhase.Canceled)
-            {
-                curMovementInput = Vector2.zero;
-            }
+            curMovementInput = context.ReadValue<Vector2>();
         }
+        else if (context.phase == InputActionPhase.Canceled)
+        {
+            curMovementInput = Vector2.zero;
+        }
+
     }
 
     public void OnJumpInput(InputAction.CallbackContext context)
@@ -88,7 +86,6 @@ public class PlayerController : MonoBehaviour
         // 카메라가 좌우로 회전하려면 rotation의 y 값에 넣어준다.
         transform.eulerAngles += new Vector3(0, mouseDelta.x * lookSensitivity, 0);
     }
-
 
     public void OnLookInput(InputAction.CallbackContext context)
     {

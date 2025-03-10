@@ -22,13 +22,12 @@ public class Condition : MonoBehaviour
 
     public IEnumerator DotAdd(float amount)
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 4; i++)
         {
             yield return new WaitForSeconds(0.7f);
             // 둘 중의 작은 값 (ex. maxValue보다 커지면 maxValue)
             curValue = Mathf.Min(curValue + amount, maxValue);
         }
-        yield break;
     }
 
     public void Subtract(float amount)

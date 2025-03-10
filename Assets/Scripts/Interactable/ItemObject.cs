@@ -31,6 +31,9 @@ public class ItemObject : MonoBehaviour, IInteractable
                     case ConsumableType.Health:
                         condition.Heal(data.consumables[i].value);
                         break;
+                    case ConsumableType.Speed:
+                        condition.Booster(data.consumables[i].value);
+                        break;
                 }
             }
         }
