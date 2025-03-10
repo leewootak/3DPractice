@@ -55,13 +55,16 @@ public class PlayerController : MonoBehaviour
 
     public void OnMoveInput(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Performed)
+        if (IsGrounded())
         {
-            curMovementInput = context.ReadValue<Vector2>();
-        }
-        else if (context.phase == InputActionPhase.Canceled)
-        {
-            curMovementInput = Vector2.zero;
+            if (context.phase == InputActionPhase.Performed)
+            {
+                curMovementInput = context.ReadValue<Vector2>();
+            }
+            else if (context.phase == InputActionPhase.Canceled)
+            {
+                curMovementInput = Vector2.zero;
+            }
         }
     }
 
@@ -118,7 +121,7 @@ public class PlayerController : MonoBehaviour
     {
         if (target.collider.CompareTag("Trampoline"))
         {
-            rb.AddForce(Vector3.up * jumpPower * 5, ForceMode.Impulse);
+            rb.AddForce(Vector3.up * jumpPower * 4.5f, ForceMode.Impulse);
         }
     }
 }

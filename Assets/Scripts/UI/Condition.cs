@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,10 +20,15 @@ public class Condition : MonoBehaviour
         hpBar.fillAmount = GetPercentage();
     }
 
-    public void Add(float amount)
+    public IEnumerator DotAdd(float amount)
     {
-        // 둘 중의 작은 값 (ex. maxValue보다 커지면 maxValue)
-        curValue = Mathf.Min(curValue + amount, maxValue);
+        for (int i = 0; i < 5; i++)
+        {
+            yield return new WaitForSeconds(0.7f);
+            // 둘 중의 작은 값 (ex. maxValue보다 커지면 maxValue)
+            curValue = Mathf.Min(curValue + amount, maxValue);
+        }
+        yield break;
     }
 
     public void Subtract(float amount)

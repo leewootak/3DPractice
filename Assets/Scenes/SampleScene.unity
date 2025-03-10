@@ -10384,7 +10384,7 @@ MonoBehaviour:
   curValue: 0
   maxValue: 100
   startValue: 100
-  dotValue: 10
+  dotValue: 5
   hpBar: {fileID: 1174661742}
 --- !u!1001 &1838118508
 PrefabInstance:
@@ -12584,6 +12584,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3279084188129445572, guid: 6d9a49d5a04337646b1ba86840d73401, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3279084188129445572, guid: 6d9a49d5a04337646b1ba86840d73401, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.507
