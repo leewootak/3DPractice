@@ -18,8 +18,6 @@ public class PlayerCondition : MonoBehaviour
 
     private void Update()
     {
-        health.Subtract(health.dotValue * Time.deltaTime);
-
         if(health.curValue <= 0f && !isDead)
         {
             Die();
